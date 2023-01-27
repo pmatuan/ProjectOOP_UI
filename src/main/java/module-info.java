@@ -6,4 +6,6 @@ module com.projectoop_ui {
     opens VietnameseHistorical;
     opens controller to javafx.fxml;
     exports controller;
+    exports views;
+    opens views to javafx.fxml;
 }

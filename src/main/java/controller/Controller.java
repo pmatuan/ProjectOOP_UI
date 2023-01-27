@@ -41,6 +41,15 @@ public class Controller implements Initializable {
     private Button btnTrieuDai;
 
     @FXML
+    private Button btnNVLQ;
+
+    @FXML
+    private Button btnSKLQ;
+
+    @FXML
+    private Button btnChiTiet;
+
+    @FXML
     private GridPane contentTrangChu;
 
     @FXML
@@ -68,10 +77,11 @@ public class Controller implements Initializable {
         contentTrangChu.setVisible(false);
         contentTrieuDai.setVisible(false);
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DynastyController dynastyController = new DynastyController(input, btnTimKiem, listviewTrieuDai);
+            DynastyController dynastyController = new DynastyController(input, btnTimKiem, btnChiTiet, btnNVLQ, btnSKLQ, listviewTrieuDai);
             dynastyController.initialize();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
