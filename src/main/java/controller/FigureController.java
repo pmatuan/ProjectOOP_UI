@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class FigureController {
     @FXML
-    private final TextField inputNV;
+    private final TextField input_NV;
     @FXML
     private final Button btnTimKiem_NV;
     @FXML
@@ -34,7 +34,7 @@ public class FigureController {
     Gson gson = new Gson();
 
     public FigureController(TextField input_NV, Button btnTimKiem_NV, Button btnChiTiet_NV, Button btnTDLQ_NV, Button btnSKLQ_NV, ListView<Figure> listviewNhanVat) throws FileNotFoundException {
-        this.inputNV = input_NV;
+        this.input_NV = input_NV;
         this.btnTimKiem_NV = btnTimKiem_NV;
         this.btnChiTiet_NV = btnChiTiet_NV;
         this.btnTDLQ_NV = btnTDLQ_NV;
@@ -105,7 +105,7 @@ public class FigureController {
 
         btnTimKiem_NV.setOnMouseClicked(event -> {
             ObservableList<Figure> figure_search = FXCollections.observableArrayList();
-            String inputName = inputNV.getText();
+            String inputName = input_NV.getText();
             for (Figure f : figures) {
                 if (f.getName().contains(inputName)) {
                     figure_search.add(f);

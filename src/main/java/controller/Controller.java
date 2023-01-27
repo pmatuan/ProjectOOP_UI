@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -26,13 +27,25 @@ public class Controller implements Initializable {
     private Button btnChiTiet_NV;
 
     @FXML
+    private Button btnChiTiet_SK;
+
+    @FXML
+    private Button btnDTLQ_SK;
+
+    @FXML
     private Button btnDiTichLichSu;
+
+    @FXML
+    private Button btnLHLQ_SK;
 
     @FXML
     private Button btnLeHoiVanHoa;
 
     @FXML
     private Button btnNVLQ;
+
+    @FXML
+    private Button btnNVLQ_SK;
 
     @FXML
     private Button btnNhanVatLichSu;
@@ -50,10 +63,16 @@ public class Controller implements Initializable {
     private Button btnTDLQ_NV;
 
     @FXML
+    private Button btnTDLQ_SK;
+
+    @FXML
     private Button btnTimKiem;
 
     @FXML
     private Button btnTimKiem_NV;
+
+    @FXML
+    private Button btnTimKiem_SK;
 
     @FXML
     private Button btnTrangChu;
@@ -71,17 +90,26 @@ public class Controller implements Initializable {
     private BorderPane contentTrieuDai;
 
     @FXML
+    private BorderPane contentSuKien;
+
+    @FXML
     private TextField input;
 
     @FXML
     private TextField input_NV;
 
+    @FXML
+    private TextField input_SK;
 
     @FXML
     private ListView<Dynasty> listviewTrieuDai;
 
     @FXML
     private ListView<Figure> listviewNhanVat;
+
+    @FXML
+    private ListView<Event> listviewSuKien;
+
 
 
 
@@ -98,12 +126,21 @@ public class Controller implements Initializable {
             resetVisible();
             contentNhanVat.setVisible(true);
         }
+        else if(event.getSource() == btnSuKienLichSu) {
+            resetVisible();
+            contentSuKien.setVisible(true);
+        }
+        else if(event.getSource() == DangXuat) {
+            Stage stage = (Stage) DangXuat.getScene().getWindow();
+            stage.close();
+        }
     }
 
     void resetVisible() {
         contentTrangChu.setVisible(false);
         contentTrieuDai.setVisible(false);
         contentNhanVat.setVisible(false);
+        contentSuKien.setVisible(false);
     }
 
     @Override
@@ -113,6 +150,8 @@ public class Controller implements Initializable {
             dynastyController.initialize();
             FigureController figurecontroller = new FigureController(input_NV, btnTimKiem_NV, btnChiTiet_NV, btnTDLQ_NV, btnSKLQ_NV, listviewNhanVat);
             figurecontroller.initialize();
+            EventController eventcontroller = new EventController(input_SK, btnTimKiem_SK, btnChiTiet_SK, btnTDLQ_SK, btnNVLQ_SK, btnDTLQ_SK, btnLHLQ_SK, listviewSuKien);
+            eventcontroller.initialize();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
