@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <VBox prefHeight="768.0" prefWidth="244.0" style="-fx-background-color: #EBE8F9;">
          <children>
@@ -181,7 +181,7 @@
             <Label text="Khánh" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <BorderPane fx:id="contentTrieuDai" layoutX="243.0" layoutY="68.0" prefHeight="701.0" prefWidth="780.0" visible="false">
+      <BorderPane fx:id="contentTrieuDai" layoutX="243.0" layoutY="68.0" prefHeight="702.0" prefWidth="780.0" visible="false">
          <top>
             <HBox prefHeight="45.0" prefWidth="786.0" BorderPane.alignment="CENTER">
                <children>
@@ -208,6 +208,38 @@
                   <Button fx:id="btnNVLQ" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Nhân vật liên quan" />
                   <Pane layoutX="10.0" layoutY="60.0" prefHeight="24.0" prefWidth="140.0" />
                   <Button fx:id="btnSKLQ" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Sự kiện liên quan" />
+                  <Pane layoutX="10.0" layoutY="60.0" prefHeight="24.0" prefWidth="140.0" />
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+      <BorderPane fx:id="contentNhanVat" layoutX="243.0" layoutY="68.0" prefHeight="702.0" prefWidth="780.0" visible="false">
+         <top>
+            <HBox prefHeight="45.0" prefWidth="786.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="45.0" prefWidth="23.0" />
+                  <TextField fx:id="input_NV" />
+                  <Button fx:id="btnTimKiem_NV" mnemonicParsing="false" text="Tìm kiếm" />
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <Pane prefHeight="585.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <Pane prefHeight="10.0" prefWidth="780.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <ListView fx:id="listviewNhanVat" fixedCellSize="50.0" prefHeight="646.0" prefWidth="584.0" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="646.0" prefWidth="171.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnChiTiet_NV" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Chi tiết" />
+                  <Pane prefHeight="24.0" prefWidth="140.0" />
+                  <Button fx:id="btnTDLQ_NV" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Triều đại liên quan" />
+                  <Pane layoutX="10.0" layoutY="60.0" prefHeight="24.0" prefWidth="140.0" />
+                  <Button fx:id="btnSKLQ_NV" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Sự kiện liên quan" />
                   <Pane layoutX="10.0" layoutY="60.0" prefHeight="24.0" prefWidth="140.0" />
                </children>
             </VBox>
