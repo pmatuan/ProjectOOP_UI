@@ -141,7 +141,7 @@
             </Button>
          </children>
       </VBox>
-      <GridPane fx:id="contentTrangChu" layoutX="277.0" layoutY="61.0" prefHeight="612.0" prefWidth="748.0" stylesheets="@style.css" visible="false">
+      <GridPane fx:id="contentTrangChu" layoutX="277.0" layoutY="61.0" prefHeight="612.0" prefWidth="748.0" stylesheets="@style.css">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="336.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="674.0" minWidth="10.0" prefWidth="412.0" />
@@ -181,7 +181,7 @@
             <Label text="Khánh" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <BorderPane fx:id="contentTrieuDai" layoutX="243.0" layoutY="68.0" prefHeight="701.0" prefWidth="780.0">
+      <BorderPane fx:id="contentTrieuDai" layoutX="243.0" layoutY="68.0" prefHeight="701.0" prefWidth="780.0" visible="false">
          <top>
             <HBox prefHeight="45.0" prefWidth="786.0" BorderPane.alignment="CENTER">
                <children>
