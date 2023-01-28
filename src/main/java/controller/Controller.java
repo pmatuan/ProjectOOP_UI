@@ -1,6 +1,7 @@
 package controller;
 
 import VietnameseHistorical.Dynasty;
+import VietnameseHistorical.Festival;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,13 +21,31 @@ public class Controller implements Initializable {
     private Button DangXuat;
 
     @FXML
+    private Button btnChiTiet;
+
+    @FXML
+    private Button btnChiTietLehoi;
+
+    @FXML
     private Button btnDiTichLichSu;
 
     @FXML
     private Button btnLeHoiVanHoa;
 
     @FXML
+    private Button btnNVLQ;
+
+    @FXML
+    private Button btnNVLQLehoi;
+
+    @FXML
     private Button btnNhanVatLichSu;
+
+    @FXML
+    private Button btnSKLQ;
+
+    @FXML
+    private Button btnSKLQLehoi;
 
     @FXML
     private Button btnSuKienLichSu;
@@ -35,19 +54,16 @@ public class Controller implements Initializable {
     private Button btnTimKiem;
 
     @FXML
+    private Button btnTimKiemLehoi;
+
+    @FXML
     private Button btnTrangChu;
 
     @FXML
     private Button btnTrieuDai;
 
     @FXML
-    private Button btnNVLQ;
-
-    @FXML
-    private Button btnSKLQ;
-
-    @FXML
-    private Button btnChiTiet;
+    private BorderPane contentLehoi;
 
     @FXML
     private GridPane contentTrangChu;
@@ -59,7 +75,13 @@ public class Controller implements Initializable {
     private TextField input;
 
     @FXML
-    private ListView<Dynasty> listviewTrieuDai;
+    private TextField inputLehoi;
+
+    @FXML
+    private ListView<?> listviewTrieuDai;
+
+    @FXML
+    private ListView<?> listviewlehoi;
 
     @FXML
     void handleClicksSidebar(ActionEvent event) throws FileNotFoundException {
@@ -70,20 +92,30 @@ public class Controller implements Initializable {
             resetVisible();
             contentTrieuDai.setVisible(true);
 
+        }else if(event.getSource()==btnLeHoiVanHoa){
+            resetVisible();
+            contentLehoi.setVisible(true);
         }
     }
 
     void resetVisible() {
         contentTrangChu.setVisible(false);
         contentTrieuDai.setVisible(false);
+        contentLehoi.setVisible(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DynastyController dynastyController = new DynastyController(input, btnTimKiem, btnChiTiet, btnNVLQ, btnSKLQ, listviewTrieuDai);
+            DynastyController dynastyController = new DynastyController(input, btnTimKiem, btnChiTiet, btnNVLQ, btnSKLQ, (ListView<Dynasty>) listviewTrieuDai);
             dynastyController.initialize();
         } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try{
+            FestivalController festivalController = new FestivalController(inputLehoi,btnTimKiemLehoi,btnChiTietLehoi,btnNVLQLehoi,btnSKLQLehoi,(ListView<Festival>) listviewlehoi);
+            festivalController.initialize();
+        } catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
     }
