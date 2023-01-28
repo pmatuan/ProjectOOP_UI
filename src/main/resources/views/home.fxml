@@ -304,7 +304,7 @@
             </VBox>
          </right>
       </BorderPane>
-      <BorderPane fx:id="contentLehoi" layoutX="243.0" layoutY="68.0" prefHeight="701.0" prefWidth="780.0">
+      <BorderPane fx:id="contentLehoi" layoutX="243.0" layoutY="68.0" prefHeight="701.0" prefWidth="780.0" visible="false">
          <top>
             <HBox prefHeight="45.0" prefWidth="786.0" BorderPane.alignment="CENTER">
                <children>
