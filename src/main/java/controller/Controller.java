@@ -31,6 +31,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnDTLQ_SK;
+    @FXML
+    private Button btnChiTietLehoi;
 
     @FXML
     private Button btnDiTichLichSu;
@@ -46,6 +48,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnNVLQ_SK;
+    @FXML
+    private Button btnNVLQLehoi;
 
     @FXML
     private Button btnNhanVatLichSu;
@@ -55,6 +59,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnSKLQ_NV;
+    @FXML
+    private Button btnSKLQLehoi;
 
     @FXML
     private Button btnSuKienLichSu;
@@ -73,6 +79,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnTimKiem_SK;
+    @FXML
+    private Button btnTimKiemLehoi;
 
     @FXML
     private Button btnTrangChu;
@@ -82,6 +90,8 @@ public class Controller implements Initializable {
 
     @FXML
     private BorderPane contentNhanVat;
+    @FXML
+    private BorderPane contentLehoi;
 
     @FXML
     private GridPane contentTrangChu;
@@ -96,6 +106,7 @@ public class Controller implements Initializable {
     private TextField input;
 
     @FXML
+
     private TextField input_NV;
 
     @FXML
@@ -103,6 +114,12 @@ public class Controller implements Initializable {
 
     @FXML
     private ListView<Dynasty> listviewTrieuDai;
+
+    @FXML
+    private TextField inputLehoi;
+
+    @FXML
+    private ListView<Festival> listviewlehoi;
 
     @FXML
     private ListView<Figure> listviewNhanVat;
@@ -133,6 +150,9 @@ public class Controller implements Initializable {
         else if(event.getSource() == DangXuat) {
             Stage stage = (Stage) DangXuat.getScene().getWindow();
             stage.close();
+        }else if(event.getSource()==btnLeHoiVanHoa){
+            resetVisible();
+            contentLehoi.setVisible(true);
         }
     }
 
@@ -141,17 +161,20 @@ public class Controller implements Initializable {
         contentTrieuDai.setVisible(false);
         contentNhanVat.setVisible(false);
         contentSuKien.setVisible(false);
+        contentLehoi.setVisible(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DynastyController dynastyController = new DynastyController(input, btnTimKiem, btnChiTiet, btnNVLQ, btnSKLQ, listviewTrieuDai);
+            DynastyController dynastyController = new DynastyController(input, btnTimKiem, btnChiTiet, btnNVLQ, btnSKLQ, (ListView<Dynasty>) listviewTrieuDai);
             dynastyController.initialize();
             FigureController figurecontroller = new FigureController(input_NV, btnTimKiem_NV, btnChiTiet_NV, btnTDLQ_NV, btnSKLQ_NV, listviewNhanVat);
             figurecontroller.initialize();
             EventController eventcontroller = new EventController(input_SK, btnTimKiem_SK, btnChiTiet_SK, btnTDLQ_SK, btnNVLQ_SK, btnDTLQ_SK, btnLHLQ_SK, listviewSuKien);
             eventcontroller.initialize();
+            FestivalController festivalController = new FestivalController(inputLehoi,btnTimKiemLehoi,btnChiTietLehoi,btnNVLQLehoi,btnSKLQLehoi,(ListView<Festival>) listviewlehoi);
+            festivalController.initialize();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
